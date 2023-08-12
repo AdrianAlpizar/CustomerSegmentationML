@@ -23,12 +23,9 @@ from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt, numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.cluster import AgglomerativeClustering
-from matplotlib.colors import ListedColormap
 from sklearn import metrics
 import warnings
 import sys, io
-from annotated_text import annotated_text
-import plotly.tools
 
 st.title('Customer Segmentation Research')
 st.sidebar.markdown("Customer Segmentation Research")
@@ -932,7 +929,7 @@ for patch in ax.patches:
 bar_ap.set_xticklabels(bar_ap.get_xticklabels(), rotation=90);
 plt.title('Number of Customers by Segments', size = 16);
 plt.ylabel('Count', size = 16,color="black")
-plt.xlabel("Segment",fontsize = 16,color="black")
+plt.xlabel("Segment")
 plt.xticks(size = 10)
 plt.yticks(size = 10)
 st.pyplot(fig)
@@ -971,7 +968,7 @@ for patch in ax.patches:
 bar_ap.set_xticklabels(bar_ap.get_xticklabels(), rotation=90);
 plt.title('Number of Customers by Segments', size = 16);
 plt.ylabel('Count', size = 16,color="black")
-plt.xlabel("Segment",fontsize = 16,color="black")
+plt.xlabel("Segment")
 plt.xticks(size = 10)
 plt.yticks(size = 10)
 st.pyplot(fig)

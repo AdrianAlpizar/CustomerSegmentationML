@@ -18,21 +18,17 @@ import pandas as pd
 import datetime
 import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib import colors
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from yellowbrick.cluster import KElbowVisualizer
 from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt, numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.cluster import AgglomerativeClustering
-from matplotlib.colors import ListedColormap
 from sklearn import metrics
 import warnings
 import sys, io
-from annotated_text import annotated_text
 import plotly.tools
 import tensorflow as tf
 
@@ -128,12 +124,12 @@ st.write('PCA data shape: ', pca_data.shape)
 code = '''
 # check imbalance on target variable
 fig = plt.figure(figsize=(6,6))
-original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True, textprops={'fontsize':16}).set_title("Target distribution")
+original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True)
 '''
 st.code(code, language='python')
 
 fig = plt.figure()
-original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True, textprops={'fontsize':10}).set_title("Target distribution")
+original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True)
 st.pyplot(fig)
 
 
