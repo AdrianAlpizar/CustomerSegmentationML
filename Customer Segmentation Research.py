@@ -1,7 +1,7 @@
-from st_pages import Page, show_pages, add_page_title
 import altair
 from sklearn.ensemble import RandomForestClassifier
 import streamlit as st
+#from st_pages import Page, show_pages, add_page_title
 import pandas as pd
 import numpy as np
 import missingno as msno
@@ -30,21 +30,8 @@ import sys, io
 from annotated_text import annotated_text
 import plotly.tools
 
-# Specify what pages should be shown in the sidebar, and what their titles and icons
-# should be
-show_pages(
-    [
-        Page("project.py", "Customer Segmentation Research"),
-        Page("project2.py", "Building Prediction Models"),
-    ]
-)
-
-# Optional -- adds the title and icon to the current page
-add_page_title()
-
-st.experimental_rerun()
-#st.title('Customer Segmentation Research')
-
+st.title('Customer Segmentation Research')
+st.sidebar.markdown("Customer Segmentation Research")
 
 st.markdown("Customer segmentation is the process of dividing a company's customer base into distinct groups or segments based on certain characteristics, behaviors, or attributes they share. The goal of customer segmentation is to better understand the diverse needs, preferences, and behaviors of different customer groups in order to tailor marketing strategies, products, and services to effectively meet their specific requirements.")
 st.caption('Customer Dataset')

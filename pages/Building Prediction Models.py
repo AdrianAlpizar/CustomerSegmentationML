@@ -37,6 +37,8 @@ import plotly.tools
 import tensorflow as tf
 
 st.title('Building Prediction Models for Marketing Campaing Response')
+st.sidebar.markdown("Building Prediction Models")
+
 original_df = pd.read_csv('original.csv', sep='\t', index_col="Unnamed: 0")
 
 
