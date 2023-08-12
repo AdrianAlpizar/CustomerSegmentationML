@@ -18,7 +18,7 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt, numpy as np 
 from sklearn import metrics
 
-#st.title('Building Prediction Models for Marketing Campaing Response')
+st.title('Building Prediction Models for Marketing Campaing Response')
 original_df = pd.read_csv('original.csv', sep='\t', index_col="Unnamed: 0")
 
 
