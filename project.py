@@ -29,9 +29,21 @@ import sys, io
 from annotated_text import annotated_text
 import plotly.tools
 
+from st_pages import Page, show_pages, add_page_title
 
+# Specify what pages should be shown in the sidebar, and what their titles and icons
+# should be
+show_pages(
+    [
+        Page("project.py", "Customer Segmentation Research"),
+        Page("project2.py", "Building Prediction Models"),
+    ]
+)
 
-st.title('Customer Segmentation Research')
+# Optional -- adds the title and icon to the current page
+add_page_title()
+
+#st.title('Customer Segmentation Research')
 
 
 st.markdown("Customer segmentation is the process of dividing a company's customer base into distinct groups or segments based on certain characteristics, behaviors, or attributes they share. The goal of customer segmentation is to better understand the diverse needs, preferences, and behaviors of different customer groups in order to tailor marketing strategies, products, and services to effectively meet their specific requirements.")
@@ -1534,54 +1546,5 @@ for i in Personal:
 
 #--------------------------- PREDICTION MODEL  ----------------------------------------------------------------------#
 
-# Using Random Forest to gain an insight on Feature Importance
-clf = RandomForestClassifier()
-clf.fit(ds.drop('Response', axis=1), ds['Response'])
-
-plt.style.use('seaborn-whitegrid')
-importance = clf.feature_importances_
-importance = pd.DataFrame(importance, index=ds.drop('Response', axis=1).columns, columns=["Importance"])
-st.pyplot(importance.sort_values(by='Importance', ascending=True).plot(kind='barh', figsize=(20,len(importance)/2)))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-annotated_text(
-    "Data set shape is ",
-    ("(2240, 29)", "2240 entries and 29 columns"),
-    " some ",
-    ("annotated", "adj"),
-    ("text", "noun"),
-    " for those of ",
-    ("you", "pronoun"),
-    " who ",
-    ("like", "verb"),
-    " this sort of ",
-    ("thing", "noun"),
-    "."
-)
-
-
-
-
-st.caption('Purchases Dataset')
-
-
-
-
+st.dataframe(ds)
+df.to_csv("original.csv", sep='\t')
