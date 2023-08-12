@@ -1,5 +1,3 @@
-import altair
-from sklearn import preprocessing, svm
 import sklearn
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
@@ -9,32 +7,18 @@ from sklearn.tree import DecisionTreeClassifier
 import streamlit as st
 import pandas as pd
 import numpy as np
-import missingno as msno
 
 
 #Importing the Libraries
 import numpy as np
-import pandas as pd
-import datetime
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
-from yellowbrick.cluster import KElbowVisualizer
-from sklearn.cluster import KMeans
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn.cluster import AgglomerativeClustering
+import pandas as pd 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+from sklearn.decomposition import PCA  
+import matplotlib.pyplot as plt, numpy as np 
 from sklearn import metrics
-import warnings
-import sys, io
-import plotly.tools
-import tensorflow as tf
 
-st.title('Building Prediction Models for Marketing Campaing Response')
-st.sidebar.markdown("Building Prediction Models")
-
+#st.title('Building Prediction Models for Marketing Campaing Response')
 original_df = pd.read_csv('original.csv', sep='\t', index_col="Unnamed: 0")
 
 
@@ -92,7 +76,7 @@ st.code(code, language='python')
 
 from sklearn.decomposition import PCA
 # Calculating PCA for both datasets, and graphing the Variance for each feature, per dataset
-std_scale = preprocessing.StandardScaler().fit(original_df.drop('Response', axis=1))
+std_scale = sklearn.preprocessing.StandardScaler().fit(original_df.drop('Response', axis=1))
 X = std_scale.transform(original_df.drop('Response', axis=1))
 pca1 = PCA(0.90, whiten=True) # Keep 90% information
 fit1 = pca1.fit(X)
@@ -124,12 +108,12 @@ st.write('PCA data shape: ', pca_data.shape)
 code = '''
 # check imbalance on target variable
 fig = plt.figure(figsize=(6,6))
-original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True)
+original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True, textprops={'fontsize':16}).set_title("Target distribution")
 '''
 st.code(code, language='python')
 
 fig = plt.figure()
-original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True)
+original_df['Response'].value_counts().plot.pie(explode=[0.1,0.1], autopct='%1.1f%%', shadow=True, textprops={'fontsize':10}).set_title("Target distribution")
 st.pyplot(fig)
 
 
