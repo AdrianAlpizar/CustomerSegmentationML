@@ -1,3 +1,4 @@
+from st_pages import Page, show_pages, add_page_title
 import altair
 from sklearn.ensemble import RandomForestClassifier
 import streamlit as st
@@ -29,8 +30,6 @@ import sys, io
 from annotated_text import annotated_text
 import plotly.tools
 
-from st_pages import Page, show_pages, add_page_title
-
 # Specify what pages should be shown in the sidebar, and what their titles and icons
 # should be
 show_pages(
@@ -43,6 +42,7 @@ show_pages(
 # Optional -- adds the title and icon to the current page
 add_page_title()
 
+st.experimental_rerun()
 #st.title('Customer Segmentation Research')
 
 
